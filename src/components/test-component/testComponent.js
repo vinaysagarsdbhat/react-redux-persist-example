@@ -14,7 +14,10 @@ export default class Test extends Component {
   render () {
     return (
       <div>
-        <input type='text' onChange={this.changeName} />
+        <input type='text' value={this.props.count} onChange={this.changeName} />
+        <button onClick={() =>this.props.incrementCount()}>+</button>
+        {this.props.count}
+        <button onClick={() => this.props.decrementCount()}>-</button>
       </div>
     )
   }
