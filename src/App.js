@@ -5,6 +5,20 @@ import TestComponent from './components/test-component/testComponentContainer'
 import SecondComponent from './components/secondComponent/secondComponentContainer'
 
 class App extends Component {
+
+  handleWindowClose(){
+    alert("Alerted Browser Close");
+  }
+  componentDidMount() {
+      window.addEventListener('onbeforeunload', this.handleWindowClose);
+  }
+
+  componentWillUnmount() {
+      window.removeEventListener('onbeforeunload', this.handleWindowClose);
+  }
+
+
+
   render () {
     return (
       <div className='App'>
